@@ -1,1 +1,1 @@
-##Random Lotto generator!##
+## Random Lotto generator!
