@@ -8,7 +8,7 @@ import { createLogger } from "redux-logger";
 import { createBrowserHistory } from "history";
 import { ConnectedRouter } from "react-router-redux";
 
-import Hello from "./common/test";
+import MainPage from "./pages/main";
 import rootReducer from "./rootReducer";
 import { Switch, Route } from "react-router";
 
@@ -25,8 +25,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path="/hello" component={() => <div>H3llo World!</div>} />
-        <Route exact component={Hello} />
+        <Route path="*" component={MainPage} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
