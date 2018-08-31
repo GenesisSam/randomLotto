@@ -19,6 +19,6 @@
       "app/common/*": ["./app/common/*"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./app/**/*"],
   "exclude": ["node_modules"]
 }
