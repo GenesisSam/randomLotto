@@ -1,5 +1,3 @@
-import zeroFill from "./zeroFill";
-
 function getRandomArbitrary(min: number, max: number) {
   // return: min <= value < max
   return Math.floor(Math.random() * (max - min) + min);
@@ -9,17 +7,17 @@ function generateRandomLotto(games: number) {
   const omr = [];
 
   for (let i = 0; i < games; i++) {
-    const newLineOfGame: Array<string> = [];
+    const newLineOfGame: Array<number> = [];
 
     for (let ci = 0; ci < 6; ci++) {
-      let number = zeroFill(getRandomArbitrary(1, 46), 2);
+      let number = getRandomArbitrary(1, 46);
       // check duplicate number;
       while (newLineOfGame.includes(number)) {
-        number = zeroFill(getRandomArbitrary(1, 46), 2);
+        number = getRandomArbitrary(1, 46);
       }
       newLineOfGame.push(number);
     }
-    omr.push(newLineOfGame);
+    omr.push(newLineOfGame.sort((a, b) => a - b));
   }
 
   return omr;

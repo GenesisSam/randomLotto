@@ -2,6 +2,7 @@ import * as React from "react";
 import generateRandomLotto from "app/utils/generateRandomLotto";
 import rangeColorSwitch from "./helpers/rangeColorSwitch";
 import Adsense from "app/components/adsense";
+import zeroFill from "app/utils/zeroFill";
 
 const styles = require("./main.scss");
 
@@ -36,20 +37,21 @@ export default class MainPage extends React.PureComponent {
       <div className={styles.lottoContent}>
         {this.randomGames.map(line => {
           return (
-            <React.Fragment>
-              <div className={styles.line}>
+            <React.Fragment key={`fragment_line_${line.toString()}`}>
+              <div className={styles.line} key={`line_${line.toString()}`}>
                 {line.map(num => {
                   return (
                     <div
+                      key={`number_${num}`}
                       className={styles.number}
                       style={{ backgroundColor: rangeColorSwitch(num) }}
                     >
-                      <span>{num}</span>
+                      <span>{zeroFill(num, 2)}</span>
                     </div>
                   );
                 })}
               </div>
-              <div className={styles.horizontalBar} />
+              <div className={styles.horizontalBar} key="horizontalBar" />
             </React.Fragment>
           );
         })}
